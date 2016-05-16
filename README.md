@@ -1,5 +1,7 @@
 # The SoapUI project
 
+This is the SoapUI project, forked to allow for any plugin (without being signed) and no install4j licesnes.
+
 ## Structure and submodules
 
 * *[soapui](soapui)* - The core module that creates the SoapUI jar
