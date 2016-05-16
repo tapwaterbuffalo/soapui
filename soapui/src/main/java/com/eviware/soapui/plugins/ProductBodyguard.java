@@ -6,7 +6,6 @@ import java.io.File;
 import java.security.Provider;
 
 public final class ProductBodyguard extends Provider {
-    private X509Certificate providerCert = null;
 
     public ProductBodyguard() {
         super("SoapUIOSPluginSignChecker", 1.0, "Plugin signature validity checker");

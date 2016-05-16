@@ -41,6 +41,44 @@
                 </configuration>
             </plugin>
 
+
+            <plugin>
+                <groupId>com.akathist.maven.plugins.launch4j</groupId>
+                <artifactId>launch4j-maven-plugin</artifactId>
+                <version>1.7.10</version>
+                <executions>
+                    <execution>
+                        <id>l4j-gui</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>launch4j</goal>
+                        </goals>
+                        <configuration>
+                            <headerType>gui</headerType>
+                            <outfile>${basedir}/target/${project.name.visible}-${project.version}.exe</outfile>
+                            <jar>soapui-${project.version}.jar</jar>
+                            <errTitle>${project.name.visible}-${project.version}</errTitle>
+                            <stayAlive>true</stayAlive>
+                            <classPath>
+                                <mainClass>com.eviware.soapui.SoapUI</mainClass>
+                                <jarLocation>../lib</jarLocation>
+                            </classPath>
+                            <dontWrapJar>true</dontWrapJar>
+                            <icon>${basedir}/src/install4j/resources/images/SoapUI-OS-5.2.ico</icon>
+                            <jre>
+                                <minVersion>1.7.0</minVersion>
+                                <initialHeapSize>256</initialHeapSize>
+                                <maxHeapSize>1024</maxHeapSize>
+                            </jre>
+                            <splash>
+                                <file>${basedir}/src/main/resources/SoapUI-Spashscreen.bmp</file>
+                                <timeout>60</timeout>
+                            </splash>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <groupId>org.sonatype.install4j</groupId>
                 <artifactId>install4j-maven-plugin</artifactId>
@@ -170,9 +208,9 @@
     </build>
 
     <dependencies>
-         <dependency>
-             <groupId>com.smartbear.soapui</groupId>
-             <artifactId>soapui</artifactId>
+        <dependency>
+            <groupId>com.smartbear.soapui</groupId>
+            <artifactId>soapui</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
