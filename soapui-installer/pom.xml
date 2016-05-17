@@ -69,11 +69,13 @@
                                 <minVersion>1.7.0</minVersion>
                                 <initialHeapSize>256</initialHeapSize>
                                 <maxHeapSize>1024</maxHeapSize>
+                                <opts>
+                                    <opt>-XX:+CMSClassUnloadingEnabled</opt>
+                                    <opt>-XX:+CMSPermGenSweepingEnabled</opt>
+                                    <opt>-Dsoapui.properties=soapui.properties</opt>
+                                    <opt>-splash:SoapUI-Spashscreen.png</opt>
+                                </opts>
                             </jre>
-                            <splash>
-                                <file>${basedir}/src/main/resources/SoapUI-Spashscreen.bmp</file>
-                                <timeout>60</timeout>
-                            </splash>
                         </configuration>
                     </execution>
                 </executions>
